@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enik's Bakes Scientific Calculator</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+<!-- Splash Screen -->
+
+<div id="splash">
+     
+    <img src="assets/logo.png" alt="Logo">
+
+    <h1>Enik's Bakes</h1>
+
+    <p>Scientific Calculator</p>
+
+    <span>INS 202 Assignment</span>
+
+</div>
+
+<!-- Calculator -->
+
+<div class="calculator">
+
+    <!-- Header -->
+
+    <header>
+
+        <div class="brand">
+
+            <img src="assets/logo.png" alt="Logo">
+
+            <div>
+
+                <h2>Enik's Bakes</h2>
+
+                <small>Scientific Calculator</small>
+
+            </div>
+
+        </div>
+
+        <div class="top-icons">
+
+            <button id="themeBtn">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+
+            <button id="historyBtn">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+            </button>
+
+            <button id="copyBtn">
+                <i class="fa-solid fa-copy"></i>
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- Display -->
+
+    <section class="display">
+
+        <div id="expression"></div>
+
+        <input
+        type="text"
+        id="display"
+        readonly>
+
+    </section>
+
+    <!-- Status -->
+
+    <section class="status">
+
+        <span id="angleMode">DEG</span>
+
+        <span id="memoryIndicator">M</span>
+
+    </section>
+
+    <!-- Memory Buttons -->
+
+    <section class="memory">
+
+        <button onclick="memoryClear()">MC</button>
+
+        <button onclick="memoryRecall()">MR</button>
+
+        <button onclick="memoryStore()">MS</button>
+
+        <button onclick="memoryAdd()">M+</button>
+
+        <button onclick="memorySubtract()">M-</button>
+
+    </section>
+
+    <!-- Scientific Buttons -->
+
+    <section class="scientific">
+
+        <button onclick="appendValue('sin(')">sin</button>
+
+        <button onclick="appendValue('cos(')">cos</button>
+
+        <button onclick="appendValue('tan(')">tan</button>
+
+        <button onclick="appendValue('sqrt(')">√</button>
+
+        <button onclick="appendValue('log(')">log</button>
+
+        <button onclick="appendValue('ln(')">ln</button>
+
+        <button onclick="appendValue('π')">π</button>
+
+        <button onclick="appendValue('e')">e</button>
+
+        <button onclick="appendValue('^2')">x²</button>
+
+        <button onclick="appendValue('^')">xʸ</button>
+
+        <button onclick="appendValue('(')">(</button>
+
+        <button onclick="appendValue(')')">)</button>
+
+    </section>
+
+    <!-- Main Buttons -->
+
+    <section class="buttons">
+
+        <button class="danger" onclick="clearDisplay()">AC</button>
+
+        <button class="operator" onclick="deleteLast()">⌫</button>
+
+        <button class="operator" onclick="appendValue('%')">%</button>
+
+        <button class="operator" onclick="appendValue('/')">÷</button>
+
+        <button onclick="appendValue('7')">7</button>
+
+        <button onclick="appendValue('8')">8</button>
+
+        <button onclick="appendValue('9')">9</button>
+
+        <button class="operator" onclick="appendValue('*')">×</button>
+
+        <button onclick="appendValue('4')">4</button>
+
+        <button onclick="appendValue('5')">5</button>
+
+        <button onclick="appendValue('6')">6</button>
+
+        <button class="operator" onclick="appendValue('-')">−</button>
+
+        <button onclick="appendValue('1')">1</button>
+
+        <button onclick="appendValue('2')">2</button>
+
+        <button onclick="appendValue('3')">3</button>
+
+        <button class="operator" onclick="appendValue('+')">+</button>
+
+        <button class="zero" onclick="appendValue('0')">0</button>
+
+        <button onclick="appendValue('.')">.</button>
+
+        <button class="equal" onclick="calculate()">=</button>
+
+    </section>
+
+</div>
+
+<!-- History Panel -->
+
+<aside id="historyPanel">
+
+    <h3>Calculation History</h3>
+
+    <ul id="historyList"></ul>
+
+    <button onclick="clearHistory()">
+        Clear History
+    </button>
+
+</aside>
+
+<footer>
+
+    <p>
+
+        Developed by <strong>Latifah Abdulghaffar</strong>
+
+        <br>
+
+        Department of Computer Science
+
+        <br>
+
+        University of Jos
+
+        <br>
+
+        INS 202 Assignment © 2026
+
+    </p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

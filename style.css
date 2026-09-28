@@ -1,0 +1,358 @@
+/* ==========================
+   ENIK'S BAKES CALCULATOR
+   INS 202 PROJECT
+========================== */
+
+:root{
+    --primary:#5C3A2E;
+    --secondary:#3E2723;
+    --accent:#F4A7B9;
+    --accent-dark:#E98FA5;
+    --cream:#FFF8F2;
+    --ivory:#FDF7F3;
+    --white:#FFFFFF;
+    --text:#2D1B14;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#FFF8F2,#FDF7F3,#F4A7B9);
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    color:var(--text);
+}
+
+/* Splash Screen */
+
+#splash{
+    position:fixed;
+    inset:0;
+    background:var(--cream);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+    animation:fadeOut 3s forwards;
+    animation-delay:2s;
+}
+
+#splash img{
+    width:120px;
+    margin-bottom:20px;
+}
+
+#splash h1{
+    color:var(--primary);
+    font-size:35px;
+}
+
+#splash p{
+    color:var(--secondary);
+    font-size:20px;
+}
+
+#splash span{
+    color:#777;
+    margin-top:10px;
+}
+
+@keyframes fadeOut{
+    to{
+        opacity:0;
+        visibility:hidden;
+    }
+}
+
+/* Calculator */
+
+.calculator{
+    width:430px;
+    background:rgba(255,255,255,.35);
+    backdrop-filter:blur(20px);
+    border-radius:30px;
+    padding:25px;
+    box-shadow:0 15px 35px rgba(0,0,0,.2);
+}
+
+/* Header */
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.brand img{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+}
+
+.brand h2{
+    color:var(--primary);
+}
+
+.brand small{
+    color:#777;
+}
+
+.top-icons button{
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:50%;
+    background:var(--accent);
+    color:white;
+    cursor:pointer;
+    transition:.3s;
+    margin-left:5px;
+}
+
+.top-icons button:hover{
+    transform:scale(1.1);
+    background:var(--accent-dark);
+}
+
+/* Display */
+
+.display{
+    background:var(--cream);
+    padding:20px;
+    border-radius:20px;
+    margin-bottom:15px;
+}
+
+#expression{
+    text-align:right;
+    color:#777;
+    height:22px;
+}
+
+#display{
+    width:100%;
+    border:none;
+    background:none;
+    outline:none;
+    font-size:38px;
+    font-weight:bold;
+    text-align:right;
+    color:var(--primary);
+}
+
+/* Status */
+
+.status{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:15px;
+    color:var(--primary);
+    font-weight:bold;
+}
+
+/* Memory */
+
+.memory{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.memory button{
+    padding:12px;
+    border:none;
+    border-radius:12px;
+    background:var(--accent);
+    color:white;
+    cursor:pointer;
+}
+
+/* Scientific */
+
+.scientific{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.scientific button{
+    padding:15px;
+    border:none;
+    border-radius:15px;
+    background:var(--cream);
+    color:var(--primary);
+    border:2px solid var(--accent);
+    cursor:pointer;
+    font-weight:600;
+    transition:.3s;
+}
+
+.scientific button:hover{
+    background:var(--accent);
+    color:white;
+}
+
+/* Main Buttons */
+
+.buttons{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+}
+
+.buttons button{
+    height:65px;
+    border:none;
+    border-radius:18px;
+    background:var(--primary);
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.buttons button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 15px rgba(0,0,0,.2);
+}
+
+.operator{
+    background:var(--accent)!important;
+}
+
+.danger{
+    background:#d9534f!important;
+}
+
+.equal{
+    background:var(--secondary)!important;
+}
+
+.zero{
+    grid-column:span 2;
+}
+
+/* History Panel */
+
+#historyPanel{
+    display:none;
+    position:fixed;
+    right:20px;
+    top:30px;
+    width:300px;
+    background:white;
+    border-radius:20px;
+    padding:20px;
+    box-shadow:0 15px 35px rgba(0,0,0,.2);
+}
+
+#historyPanel h3{
+    color:var(--primary);
+    margin-bottom:15px;
+}
+
+#historyList{
+    max-height:300px;
+    overflow:auto;
+    list-style:none;
+}
+
+#historyList li{
+    padding:10px;
+    margin-bottom:10px;
+    background:var(--cream);
+    border-radius:10px;
+}
+
+#historyPanel button{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border:none;
+    border-radius:10px;
+    background:#d9534f;
+    color:white;
+}
+
+/* Footer */
+
+footer{
+    margin-top:25px;
+    text-align:center;
+    color:var(--primary);
+    font-size:14px;
+}
+
+/* Mobile */
+
+@media(max-width:500px){
+
+.calculator{
+    width:95%;
+}
+
+.buttons button{
+    height:55px;
+    font-size:18px;
+}
+
+#display{
+    font-size:30px;
+}
+
+}
+/* ==========================
+   DARK MODE
+========================== */
+
+body.dark{
+    background:linear-gradient(135deg,#2b1d18,#3E2723,#5C3A2E);
+}
+
+body.dark .calculator{
+    background:rgba(62,39,35,.92);
+}
+
+body.dark .display{
+    background:#2D1B14;
+}
+
+body.dark #display,
+body.dark #expression{
+    color:#FFF8F2;
+}
+
+body.dark .scientific button{
+    background:#5C3A2E;
+    color:#FFF8F2;
+    border:2px solid #F4A7B9;
+}
+
+body.dark footer{
+    color:#FFF8F2;
+}
+button:active{
+
+transform:scale(.95);
+
+transition:.1s;
+
+}
